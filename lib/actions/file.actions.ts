@@ -18,9 +18,7 @@ export const uploadFile = async ({
   ownerId,
   accountId,
   path,
-}: //@ts-ignore
-
-UploadFileProps) => {
+}: UploadFileProps) => {
   const { storage, databases } = await createAdminClient();
 
   try {
@@ -97,9 +95,7 @@ export const getFiles = async ({
   searchText = "",
   sort = "$createdAt-desc",
   limit,
-}: //@ts-ignore
-
-GetFilesProps) => {
+}: GetFilesProps) => {
   const { databases } = await createAdminClient();
 
   try {
@@ -127,9 +123,7 @@ export const renameFile = async ({
   name,
   extension,
   path,
-}: //@ts-ignore
-
-RenameFileProps) => {
+}: RenameFileProps) => {
   const { databases } = await createAdminClient();
 
   try {
@@ -154,9 +148,7 @@ export const updateFileUsers = async ({
   fileId,
   emails,
   path,
-}: //@ts-ignore
-
-UpdateFileUsersProps) => {
+}: UpdateFileUsersProps) => {
   const { databases } = await createAdminClient();
 
   try {
@@ -180,9 +172,7 @@ export const deleteFile = async ({
   fileId,
   bucketFileId,
   path,
-}: //@ts-ignore
-
-DeleteFileProps) => {
+}: DeleteFileProps) => {
   const { databases, storage } = await createAdminClient();
 
   try {
@@ -227,23 +217,15 @@ export async function getTotalSpaceUsed() {
     };
 
     files.documents.forEach((file) => {
-      //@ts-ignore
       const fileType = file.type as FileType;
-      //@ts-ignore
 
       totalSpace[fileType].size += file.size;
       totalSpace.used += file.size;
 
       if (
-        //@ts-ignore
-
         !totalSpace[fileType].latestDate ||
-        //@ts-ignore
-
         new Date(file.$updatedAt) > new Date(totalSpace[fileType].latestDate)
       ) {
-        //@ts-ignore
-
         totalSpace[fileType].latestDate = file.$updatedAt;
       }
     });

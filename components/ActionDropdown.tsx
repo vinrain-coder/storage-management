@@ -34,7 +34,6 @@ import { FileDetails, ShareInput } from "@/components/ActionsModalContent";
 const ActionDropdown = ({ file }: { file: Models.Document }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  //@ts-ignore
   const [action, setAction] = useState<ActionType | null>(null);
   const [name, setName] = useState(file.name);
   const [isLoading, setIsLoading] = useState(false);
